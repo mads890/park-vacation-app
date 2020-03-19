@@ -4,7 +4,7 @@ function formatParams(params) {
     let paramItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return paramItems.join('&')
     }
-}
+
 
 function getParks(place, numResults) {
     let params = {
