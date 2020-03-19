@@ -24,13 +24,12 @@ function getParks(place, numResults) {
             throw new Error(response.message);
         }
     })
-    .then(responseJson => console.log(JSON.stringify(responseJson)))
+    .then(responseJson => displayParks(responseJson))
     .catch(err => showError(err))
 }
 
 function displayParks(responseJson) {
     $('.results').removeClass('hidden');
-    
     $('.resultslist').append(responseJson.forEach(`<li><h2>${responseJson.name}</h2><br/><p>${responseJson.description}</p><br/><p>More info at <a href="${responseJson.url}">${responseJson.url}</a></li>`))
 }
 
