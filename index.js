@@ -30,7 +30,9 @@ function getParks(place, numResults) {
 
 function displayParks(responseJson) {
     $('.results').removeClass('hidden');
-    $('.resultslist').append(responseJson.forEach(`<li><h2>${responseJson.name}</h2><br/><p>${responseJson.description}</p><br/><p>More info at <a href="${responseJson.url}">${responseJson.url}</a></li>`))
+    for (let i = 0; i < responseJson.length; i++) { 
+         $('.resultslist').append(`<li><h2>${responseJson.name}</h2><br/><p>${responseJson.description}</p><br/><p>More info at <a href="${responseJson.url}">${responseJson.url}</a></li>`)
+        }
 }
 
 function showError(err) {
