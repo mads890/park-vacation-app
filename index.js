@@ -30,8 +30,9 @@ function getParks(place, numResults) {
 
 function displayParks(responseJson) {
     $('.results').removeClass('hidden');
+
     for (let i = 0; i < responseJson.length; i++) { 
-         $('.resultslist').append(`<li><h2>${responseJson.name}</h2><br/><p>${responseJson.description}</p><br/><p>More info at <a href="${responseJson.url}">${responseJson.url}</a></li>`)
+         $('.resultslist').append(`<li><h2>${responseJson[i].name}</h2><p>${responseJson[i].description}</p><p>More info at <a href="${responseJson[i].url}">${responseJson[i].url}</a></li>`)
         }
 }
 
@@ -47,7 +48,6 @@ function formSubmit() {
         $('.error').empty().addClass('hidden');
         let state = $('#parksearch').val();
         let parkNum = $('#maxnum').val();
-        $('#listheader').append(`${parkNum} Parks of ${state}:`);
         getParks(state, parkNum);
     })
 }
