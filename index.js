@@ -8,7 +8,7 @@ function formatParams(params) {
 
 function getParks(place, numResults) {
     let params = {
-        api_key: apiKeyGoesHere,
+        api_key: '9fdaSwcXv1QemBXYpkc8qY2XmYFX1lKeh5f1pvM3',
         q: place,
         limit: numResults
     }
