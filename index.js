@@ -10,7 +10,7 @@ function getParks(place, numResults) {
     let params = {
         api_key: '9fdaSwcXv1QemBXYpkc8qY2XmYFX1lKeh5f1pvM3',
         q: place,
-        results: numResults
+        limit: numResults
     }
     let queryString = formatParams(params);
     const url = 'https://developer.nps.gov/api/v1/parks?' + queryString;
@@ -30,9 +30,9 @@ function getParks(place, numResults) {
 
 function displayParks(responseJson) {
     $('.results').removeClass('hidden');
-    console.log(responseJson)
-    for (let i = 0; i < responseJson.length; i++) { 
-         $('.resultslist').append(`<li><h2>${responseJson[i].name}</h2><p>${responseJson[i].description}</p><p>More info at <a href="${responseJson[i].url}">${responseJson[i].url}</a></p></li>`)
+    let results = responseJson.data;
+    for (let i = 0; i < results.length; i++) { 
+          $('.resultslist').append(`<li><h2>${results[i].name}</h2><p>${results[i].description}</p><p>More info at <a href="${results[i].url}">${results[i].url}</a></p></li>`)
         }
 }
 
