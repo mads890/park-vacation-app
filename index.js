@@ -30,9 +30,10 @@ function getParks(place, numResults) {
 
 function displayParks(responseJson) {
     $('.results').removeClass('hidden');
+    $('.resultslist').empty();
     console.log(responseJson)
     for (let i = 0; i < responseJson.data.length; i++) { 
-         $('.resultslist').append(`<li><h2>${responseJson.data[i].name}</h2><p>${responseJson.data[i].description}</p><p>More info at <a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></p></li>`)
+         $('.results').append(`<li><h2>${responseJson.data[i].name}</h2><p>${responseJson.data[i].description}</p><p>More info at <a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></p></li>`)
         }
 }
 
@@ -45,7 +46,7 @@ function formSubmit() {
     $('form').submit(event => {
         event.preventDefault();
         $('.results').addClass('hidden');
-        $('.resultslist').empty();
+        
         $('.error').empty().addClass('hidden');
         let state = $('#parksearch').val();
         let parkNum = $('#maxnum').val();
