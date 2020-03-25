@@ -32,9 +32,15 @@ function displayParks(responseJson) {
     $('.results').removeClass('hidden');
     $('.resultslist').empty();
     console.log(responseJson)
+    if (responseJson.data.length > 0) {
     for (let i = 0; i < responseJson.data.length; i++) { 
          $('.resultslist').append(`<li><h2>${responseJson.data[i].name}</h2><p>${responseJson.data[i].description}</p><p>More info at <a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a></p></li>`)
         }
+    }
+    else if (responseJson.data.length == 0) {
+        $('.error').removeClass('hidden').append('<h2>No results found.</h2>');
+
+    }
 }
 
 function showError(err) {
