@@ -53,7 +53,7 @@ function formSubmit() {
         event.preventDefault();
         $('.results').addClass('hidden');
         $('.error').empty().addClass('hidden');
-        let state = $('#parksearch').val().replace(', ' '&');
+        let state = $('#parksearch').val().replace(', ', '&');
         let parkNum = $('#maxnum').val();
         getParks(state, parkNum);
     })
